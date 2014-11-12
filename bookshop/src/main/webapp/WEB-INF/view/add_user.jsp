@@ -29,27 +29,19 @@
         <c:if test="${not empty message}">
           <div class="alert alert-success">${message}</div>
         </c:if>
-        <form:form modelAttribute="addBookRequest" action="addBookPost.html">
+        <form:form modelAttribute="addUserRequest" action="addUserPost.html">
           <div class="form-group">            
               <p>
-                <label for="input_title">Title</label>
-                <form:input path="title" id="input_title" placeholder="Title" />
-                <form:errors path="title" element="div" cssClass="validation-error"/>                
+                <label for="input_email">Email</label>
+                <form:input path="email" id="input_title" placeholder="Email" />
+                <form:errors path="email" element="div" cssClass="validation-error"/>                
               </p>              
               <p>
-                <label for="input_author">Author</label>                                
-                <form:input path="author" id="input_author" placeholder="Author" />
-                <form:errors path="author" element="div" cssClass="validation-error" />                
+                <label for="input_password">Password</label>                                
+                <form:input path="password" id="input_password" placeholder="Password" />
+                <form:errors path="password" element="div" cssClass="validation-error" />                
               </p>
-              <p>
-                <label for="input_format">Format</label>
-                <form:select path="format" id="input_format" items="${addBookFormModel.availableBookFormats}" />
-              </p>
-              <p>
-                <label for="input_synopsis">Synopsis</label>
-                <form:textarea path="synopsis" id="input_synopsis" placeholder="Synopsis" />
-              </p>            
-          </div>
+		  </div>
 
           <p>
             <button type="submit" class="btn btn-default">Add</button>

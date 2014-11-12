@@ -21,6 +21,8 @@
           <li><a href="<c:url value='/' />">Home</a></li>
           <li><a href="<c:url value='/shopping.html' />">Bookstore</a></li>
           <li><a href="<c:url value='/addBookForm.html' />">Manage books</a></li>
+          <li><a href="<c:url value='/users.html' />">List Users</a></li>
+          <li><a href="<c:url value='/addUserForm.html' />">Manage users</a></li>
         </ul>
       </div>
       <div id="content">
