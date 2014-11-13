@@ -41,6 +41,11 @@
                 <form:input path="password" id="input_password" placeholder="Password" />
                 <form:errors path="password" element="div" cssClass="validation-error" />                
               </p>
+              <p>
+                <label for="input_dateOfBirth">Date Of Birth</label>                                
+                <form:input path="dateOfBirth" id="input_dateOfBirth" placeholder="dateOfBirth" />
+                <form:errors path="dateOfBirth" element="div" cssClass="validation-error" />                
+              </p>
 		  </div>
 
           <p>

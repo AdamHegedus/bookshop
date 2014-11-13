@@ -28,6 +28,7 @@ public class UserTransformer {
     public UserSummaryView transformUserToSummary(User user) {
         UserSummaryView result = new UserSummaryView();
         result.setEmail(user.getEmail());
+        result.setDateOfBirth(user.getDateOfBirth());
         result.setUserId(user.getUserId());
         return result;
     }

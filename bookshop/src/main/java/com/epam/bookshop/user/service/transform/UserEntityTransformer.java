@@ -23,6 +23,7 @@ public class UserEntityTransformer {
         result.setEmail(user.getEmail());
         result.setPassword(user.getPassword());
         result.setUserId(user.getId());
+        result.setDateOfBirth(user.getDateOfBirth());
         return result;
     }
 
@@ -30,6 +31,7 @@ public class UserEntityTransformer {
         UserEntity result = new UserEntity();
         result.setEmail(user.getEmail());
         result.setPassword(user.getPassword());
+        result.setDateOfBirth(user.getDateOfBirth());
         return result;
     }
 }

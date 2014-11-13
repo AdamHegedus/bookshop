@@ -34,11 +34,13 @@
         <table>
           <tr>
             <th>Email</th>
+            <th>Date Of Birth</th>
           </tr>
 
           <c:forEach var="user" items="${listUsersModel.users}">
             <tr>
               <td>${user.email}</td>
+              <td>${user.dateOfBirth}</td>
             </tr>
           </c:forEach>
 

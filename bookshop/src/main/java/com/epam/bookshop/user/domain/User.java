@@ -1,10 +1,13 @@
 package com.epam.bookshop.user.domain;
 
+import java.util.Date;
+
 public class User {
 
     private Long userId;
     private String email;
     private String password;
+    private Date dateOfBirth;
 
     public Long getUserId() {
         return userId;
@@ -28,6 +31,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
 }

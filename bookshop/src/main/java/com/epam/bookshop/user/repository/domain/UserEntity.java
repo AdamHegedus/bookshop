@@ -1,6 +1,7 @@
 package com.epam.bookshop.user.repository.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +16,7 @@ public class UserEntity implements Serializable {
     private Long id;
     private String email;
     private String password;
+    private Date dateOfBirth;
 
     public Long getId() {
         return id;
@@ -38,6 +40,14 @@ public class UserEntity implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
 }
