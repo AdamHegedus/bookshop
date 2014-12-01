@@ -7,6 +7,7 @@ public class Book {
 	private String author;
 	private String synopsis;
 	private BookFormat format;
+	private byte[] cover;
 
 	public Long getBookId() {
 		return bookId;
@@ -46,6 +47,14 @@ public class Book {
 
 	public void setFormat(BookFormat format) {
 		this.format = format;
+	}
+
+	public byte[] getCover() {
+		return cover;
+	}
+
+	public void setCover(byte[] cover) {
+		this.cover = cover;
 	}
 
 }

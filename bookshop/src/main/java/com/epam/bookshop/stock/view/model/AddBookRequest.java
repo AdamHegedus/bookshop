@@ -3,6 +3,8 @@ package com.epam.bookshop.stock.view.model;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.epam.bookshop.book.domain.BookFormat;
 
 public class AddBookRequest {
@@ -15,6 +17,7 @@ public class AddBookRequest {
 	private String synopsis;
 	@NotNull
 	private BookFormat format;
+	private MultipartFile cover;
 
 	public String getTitle() {
 		return title;
@@ -48,4 +51,11 @@ public class AddBookRequest {
 		this.format = format;
 	}
 
+	public MultipartFile getCover() {
+		return cover;
+	}
+
+	public void setCover(MultipartFile cover) {
+		this.cover = cover;
+	}
 }

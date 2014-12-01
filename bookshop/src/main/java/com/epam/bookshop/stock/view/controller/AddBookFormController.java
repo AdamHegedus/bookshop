@@ -13,6 +13,7 @@ import com.epam.bookshop.stock.view.model.AddBookRequest;
 
 @Controller
 public class AddBookFormController {
+	public static final String REQUEST_MAPPING = "/addBookForm.html";
 
 	@ModelAttribute("addBookRequest")
 	public AddBookRequest createListBooksModel(@ModelAttribute AddBookRequest addBookRequest) {
@@ -24,7 +25,7 @@ public class AddBookFormController {
 		return new AddBookFormModel(Arrays.asList(BookFormat.values()));
 	}
 
-	@RequestMapping(value = "/addBookForm.html", method = RequestMethod.GET)
+	@RequestMapping(value = REQUEST_MAPPING, method = RequestMethod.GET)
 	private String createBook() {
 		return "add_book";
 	}

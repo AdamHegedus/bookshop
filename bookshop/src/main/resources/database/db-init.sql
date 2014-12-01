@@ -4,6 +4,7 @@ create table book (
     , author varchar(255)
     , synopsis varchar(500)
     , format varchar (30)
+    , cover blob
     , primary key (id)
 );
 insert into book(id, title, author, synopsis, format) values (default, 'Mostly Harmless', 'Douglas Adams', 'Douglas Adams is back with the amazing, logic-defying, but-why-stop-now fifth novel in the Hitchhiker Trilogy. Here is the epic story of Random, who sets out on a transgalactic quest to find the planet of her ancestors. Line drawings.', 'ELECTRONIC');

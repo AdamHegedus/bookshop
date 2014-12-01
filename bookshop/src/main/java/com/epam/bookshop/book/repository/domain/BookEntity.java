@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity(name = "book")
 public class BookEntity implements Serializable {
@@ -16,6 +17,8 @@ public class BookEntity implements Serializable {
 	private String author;
 	private String synopsis;
 	private String format;
+	@Lob
+	private byte[] cover;
 
 	public Long getId() {
 		return id;
@@ -55,6 +58,14 @@ public class BookEntity implements Serializable {
 
 	public void setFormat(String format) {
 		this.format = format;
+	}
+
+	public byte[] getCover() {
+		return cover;
+	}
+
+	public void setCover(byte[] cover) {
+		this.cover = cover;
 	}
 
 }

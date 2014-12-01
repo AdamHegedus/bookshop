@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.epam.bookshop.book.domain.Book;
 import com.epam.bookshop.book.service.BookSearchService;
+import com.epam.bookshop.shopping.view.model.AddShoppingCartBookItemRequest;
 import com.epam.bookshop.shopping.view.model.BookDetailsModel;
 import com.epam.bookshop.shopping.view.model.BookDetailsView;
 import com.epam.bookshop.shopping.view.model.BookSummaryView;
@@ -32,19 +33,26 @@ public class ShowBookController {
         return initBookDetailsModel(book);
     }
 
-    private BookDetailsModel initBookDetailsModel(Book book) {
-        BookSummaryView summary = bookTransformer.transformBookToSummary(book);
-        BookDetailsView details = bookTransformer.transformBookToDetails(book);
-        return new BookDetailsModel(summary, details);
-    }
-
-    private Book findBook(Long bookId) {
-        return bookSearchService.findBook(bookId);
+    @ModelAttribute("addShoppingCartBookItemRequest")
+    public AddShoppingCartBookItemRequest createAddShoppingCartBookItemRequest(ShowBookRequest showBookRequest) {
+        AddShoppingCartBookItemRequest result = new AddShoppingCartBookItemRequest();
+        result.setBookId(showBookRequest.getBookId());
+        return result;
     }
 
     @RequestMapping(REQUEST_MAPPING)
     public String showBooks() {
         return "book_details";
+    }
+
+    private BookDetailsModel initBookDetailsModel(Book book) {
+        BookSummaryView summary = bookTransformer.transformBookToSummary(book);
+        BookDetailsView details = bookTransformer.transformBookToDetails(book);
+        return new BookDetailsModel(summary, details, AddToShoppingCartController.REQUEST_MAPPING);
+    }
+
+    private Book findBook(Long bookId) {
+        return bookSearchService.findBook(bookId);
     }
 
 }

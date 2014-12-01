@@ -26,6 +26,7 @@ public class BookEntityTransformer {
 		result.setBookId(book.getId());
 		result.setSynopsis(book.getSynopsis());
 		result.setFormat(BookFormat.getByName(book.getFormat()));
+		result.setCover(book.getCover());
 		return result;
 	}
 
@@ -35,6 +36,7 @@ public class BookEntityTransformer {
 		result.setTitle(book.getTitle());
 		result.setSynopsis(book.getSynopsis());
 		result.setFormat(book.getFormat().name());
+		result.setCover(book.getCover());
 		return result;
 	}
 }

@@ -1,5 +1,6 @@
 package com.epam.bookshop.stock.view.controller;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 import javax.validation.Valid;
@@ -9,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.epam.bookshop.book.domain.BookFormat;
@@ -20,6 +20,7 @@ import com.epam.bookshop.stock.view.transform.AddBookRequestTransformer;
 
 @Controller
 public class AddBookPostController {
+	public static final String REQUEST_MAPPING = "/addBookPost.html";
     private final BookWriteService bookWriteService;
     private final AddBookRequestTransformer addBookRequestTransformer;
 
@@ -40,17 +41,16 @@ public class AddBookPostController {
         return new AddBookFormModel(Arrays.asList(BookFormat.values()));
     }
 
-    @RequestMapping(value = "/addBookPost.html", method = RequestMethod.POST)
-    private String createBook(@Valid AddBookRequest addBookRequest, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
-        String result;
-        if (bindingResult.hasErrors()) {
-            result = "add_book";
-        } else {
-            bookWriteService.saveBook(addBookRequestTransformer.transformAddBookRequestToBook(addBookRequest));
-            redirectAttributes.addFlashAttribute("message",
-                    String.format("Book '%s' of '%s' saved!", addBookRequest.getTitle(), addBookRequest.getAuthor()));
-            result = "redirect:addBookForm.html";
-        }
-        return result;
-    }
+	@RequestMapping(value = REQUEST_MAPPING)
+	private String createBook(@Valid AddBookRequest addBookRequest, BindingResult bindingResult, RedirectAttributes redirectAttributes) throws IOException {
+		String result;
+		if (bindingResult.hasErrors()) {
+			result = "add_book";
+		} else {
+			bookWriteService.saveBook(addBookRequestTransformer.transformAddBookRequestToBook(addBookRequest));
+			redirectAttributes.addFlashAttribute("message", String.format("Book '%s' of '%s' saved!", addBookRequest.getTitle(), addBookRequest.getAuthor()));
+			result = "redirect:addBookForm.html";
+		}
+		return result;
+	}
 }
