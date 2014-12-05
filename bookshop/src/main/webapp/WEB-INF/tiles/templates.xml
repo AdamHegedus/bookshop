@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="defaultTemplate" template="/WEB-INF/template/template.jsp">
+        <put-attribute name="header" value="/WEB-INF/template/header.jsp" />
+        <put-attribute name="navigation" value="/WEB-INF/template/navigation.jsp" />
+    </definition>
+    
+    <definition name="homepage" extends="defaultTemplate">
+    	<put-attribute name="title" value="Welcome" />
+    	<put-attribute name="content" value="/WEB-INF/view/homepage.jsp" />
+    </definition>
+    
+    <definition name="login_form" extends="defaultTemplate">
+    	<put-attribute name="title" value="Login To The Bookshop" />
+    	<put-attribute name="content" value="/WEB-INF/view/login.jsp" />
+    </definition>
+    
+    <definition name="shopping" extends="defaultTemplate">
+    	<put-attribute name="title" value="Bookshop" />
+    	<put-attribute name="content" value="/WEB-INF/view/shopping.jsp" />
+    </definition>
+    
+    <definition name="book_details" extends="defaultTemplate">
+    	<put-attribute name="title" value="Book Details" />
+    	<put-attribute name="content" value="/WEB-INF/view/book_details.jsp" />
+    </definition>
+
+    <definition name="shopping_cart" extends="defaultTemplate">
+    	<put-attribute name="title" value="Shopping Cart" />
+    	<put-attribute name="content" value="/WEB-INF/view/shopping_cart.jsp" />
+    </definition>
+    
+    <definition name="users" extends="defaultTemplate">
+    	<put-attribute name="title" value="List Of Users" />
+    	<put-attribute name="content" value="/WEB-INF/view/users.jsp" />
+    </definition>
+    
+    <definition name="add_user" extends="defaultTemplate">
+    	<put-attribute name="title" value="Register new user account" />
+    	<put-attribute name="content" value="/WEB-INF/view/add_user.jsp" />
+    </definition>
+    
+    <definition name="add_book" extends="defaultTemplate">
+    	<put-attribute name="title" value="Add new book to catalog" />
+    	<put-attribute name="content" value="/WEB-INF/view/add_book.jsp" />
+    </definition>
+    
+    
+</tiles-definitions>

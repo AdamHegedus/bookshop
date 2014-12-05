@@ -7,5 +7,5 @@ import org.springframework.data.repository.CrudRepository;
 import com.epam.bookshop.user.repository.domain.UserEntity;
 
 public interface UserDao extends CrudRepository<UserEntity, Long> {
-    List<UserEntity> findByEmailIgnoreCaseLike(String email);
+    List<UserEntity> findByUsernameIgnoreCaseLike(String username);
 }

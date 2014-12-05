@@ -1,5 +1,6 @@
 package com.epam.bookshop.stock.view.model;
 
+import javax.annotation.Nonnegative;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -8,54 +9,65 @@ import org.springframework.web.multipart.MultipartFile;
 import com.epam.bookshop.book.domain.BookFormat;
 
 public class AddBookRequest {
-	@NotNull
-	@Size(min = 2, max = 255)
-	private String title;
-	@NotNull
-	@Size(min = 2, max = 255)
-	private String author;
-	private String synopsis;
-	@NotNull
-	private BookFormat format;
-	private MultipartFile cover;
+    @NotNull
+    @Size(min = 2, max = 255)
+    private String title;
+    @NotNull
+    @Size(min = 2, max = 255)
+    private String author;
+    private String synopsis;
+    @NotNull
+    private BookFormat format;
+    private MultipartFile cover;
+    @NotNull
+    @Nonnegative
+    private int stock;
 
-	public String getTitle() {
-		return title;
-	}
+    public int getStock() {
+        return stock;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
 
-	public String getAuthor() {
-		return author;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public void setAuthor(String author) {
-		this.author = author;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public String getSynopsis() {
-		return synopsis;
-	}
+    public String getAuthor() {
+        return author;
+    }
 
-	public void setSynopsis(String synopsis) {
-		this.synopsis = synopsis;
-	}
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
-	public BookFormat getFormat() {
-		return format;
-	}
+    public String getSynopsis() {
+        return synopsis;
+    }
 
-	public void setFormat(BookFormat format) {
-		this.format = format;
-	}
+    public void setSynopsis(String synopsis) {
+        this.synopsis = synopsis;
+    }
 
-	public MultipartFile getCover() {
-		return cover;
-	}
+    public BookFormat getFormat() {
+        return format;
+    }
 
-	public void setCover(MultipartFile cover) {
-		this.cover = cover;
-	}
+    public void setFormat(BookFormat format) {
+        this.format = format;
+    }
+
+    public MultipartFile getCover() {
+        return cover;
+    }
+
+    public void setCover(MultipartFile cover) {
+        this.cover = cover;
+    }
 }

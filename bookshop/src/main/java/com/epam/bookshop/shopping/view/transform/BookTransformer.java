@@ -17,7 +17,7 @@ import com.epam.bookshop.shopping.view.model.BookSummaryView;
 public class BookTransformer {
     private static final String BOOK_QUERY_URL_PATTERN = "%s?bookId=%d";
 
-    private ConversionService onversionService;
+    private final ConversionService onversionService;
 
     @Autowired
     public BookTransformer(ConversionService onversionService) {
@@ -46,6 +46,7 @@ public class BookTransformer {
     public BookDetailsView transformBookToDetails(Book book) {
         BookDetailsView result = new BookDetailsView();
         result.setSynopsis(book.getSynopsis());
+        result.setStock(book.getStock());
         if (book.getCover() != null) {
             result.setCoverUrl(String.format(BOOK_QUERY_URL_PATTERN, BookCoverImageController.REQUEST_MAPPING, book.getBookId()));
         }

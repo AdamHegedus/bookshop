@@ -1,5 +1,6 @@
 package com.epam.bookshop.listusers.view.transform;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,8 +28,10 @@ public class UserTransformer {
 
     public UserSummaryView transformUserToSummary(User user) {
         UserSummaryView result = new UserSummaryView();
+        result.setUsername(user.getUsername());
         result.setEmail(user.getEmail());
-        result.setDateOfBirth(user.getDateOfBirth());
+        SimpleDateFormat sdf = new SimpleDateFormat("YYYY.MM.dd. E");
+        result.setDateOfBirth(sdf.format(user.getDateOfBirth()));
         result.setUserId(user.getUserId());
         return result;
     }

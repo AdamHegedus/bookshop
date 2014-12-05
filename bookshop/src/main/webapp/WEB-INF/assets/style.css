@@ -1445,7 +1445,7 @@ layout-one-fixed
 
 #layout-one-fixed #container {
 	margin: 0 auto;
-	width: 600px;
+	width: 720px;
 	background: #fff;
 }
 
@@ -1460,7 +1460,7 @@ layout-one-fixed
 
 #layout-one-fixed #navigation {
 	float: left;
-	width: 600px;
+	width: 720px;
 	background: #333;
 }
 

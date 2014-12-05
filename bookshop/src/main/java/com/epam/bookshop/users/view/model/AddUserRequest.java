@@ -9,10 +9,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 public class AddUserRequest {
     @NotNull
+    @Size(min = 2, max = 10)
+    private String username;
+    @NotNull
     @Size(min = 2, max = 255)
     private String email;
     @NotNull
-    @Size(min = 2, max = 255)
+    @Size(min = 2, max = 10)
     private String password;
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date dateOfBirth;
@@ -39,6 +42,14 @@ public class AddUserRequest {
 
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
 }

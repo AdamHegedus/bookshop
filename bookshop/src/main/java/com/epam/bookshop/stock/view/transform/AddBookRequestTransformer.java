@@ -9,22 +9,23 @@ import com.epam.bookshop.stock.view.model.AddBookRequest;
 
 @Component
 public class AddBookRequestTransformer {
-	public Book transformAddBookRequestToBook(AddBookRequest addBookRequest) throws IOException {
-		Book result = new Book();
-		result.setAuthor(addBookRequest.getAuthor());
-		result.setSynopsis(addBookRequest.getSynopsis());
-		result.setTitle(addBookRequest.getTitle());
-		result.setFormat(addBookRequest.getFormat());
-		result.setCover(getCover(addBookRequest));
-		return result;
+    public Book transformAddBookRequestToBook(AddBookRequest addBookRequest) throws IOException {
+        Book result = new Book();
+        result.setAuthor(addBookRequest.getAuthor());
+        result.setSynopsis(addBookRequest.getSynopsis());
+        result.setTitle(addBookRequest.getTitle());
+        result.setFormat(addBookRequest.getFormat());
+        result.setCover(getCover(addBookRequest));
+        result.setStock(addBookRequest.getStock());
+        return result;
 
-	}
+    }
 
-	private byte[] getCover(AddBookRequest addBookRequest) throws IOException {
-		byte[] result = null;
-		if (addBookRequest.getCover() != null) {
-			result = addBookRequest.getCover().getBytes();
-		}
-		return result;
-	}
+    private byte[] getCover(AddBookRequest addBookRequest) throws IOException {
+        byte[] result = null;
+        if (addBookRequest.getCover() != null) {
+            result = addBookRequest.getCover().getBytes();
+        }
+        return result;
+    }
 }

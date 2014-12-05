@@ -20,6 +20,7 @@ public class UserEntityTransformer {
 
     public User transformUserEntity(UserEntity user) {
         User result = new User();
+        result.setUsername(user.getUsername());
         result.setEmail(user.getEmail());
         result.setPassword(user.getPassword());
         result.setUserId(user.getId());
@@ -29,6 +30,7 @@ public class UserEntityTransformer {
 
     public UserEntity transformUserToUserEntity(User user) {
         UserEntity result = new UserEntity();
+        result.setUsername(user.getUsername());
         result.setEmail(user.getEmail());
         result.setPassword(user.getPassword());
         result.setDateOfBirth(user.getDateOfBirth());

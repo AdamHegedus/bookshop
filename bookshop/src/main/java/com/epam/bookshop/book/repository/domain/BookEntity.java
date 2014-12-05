@@ -9,63 +9,72 @@ import javax.persistence.Lob;
 
 @Entity(name = "book")
 public class BookEntity implements Serializable {
-	private static final long serialVersionUID = 7826769848712964944L;
-	@Id
-	@GeneratedValue
-	private Long id;
-	private String title;
-	private String author;
-	private String synopsis;
-	private String format;
-	@Lob
-	private byte[] cover;
+    private static final long serialVersionUID = 7826769848712964944L;
+    @Id
+    @GeneratedValue
+    private Long id;
+    private String title;
+    private String author;
+    private String synopsis;
+    private String format;
+    @Lob
+    private byte[] cover;
+    private int stock;
 
-	public Long getId() {
-		return id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public String getAuthor() {
-		return author;
-	}
+    public String getAuthor() {
+        return author;
+    }
 
-	public void setAuthor(String author) {
-		this.author = author;
-	}
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
-	public String getSynopsis() {
-		return synopsis;
-	}
+    public String getSynopsis() {
+        return synopsis;
+    }
 
-	public void setSynopsis(String synopsis) {
-		this.synopsis = synopsis;
-	}
+    public void setSynopsis(String synopsis) {
+        this.synopsis = synopsis;
+    }
 
-	public String getFormat() {
-		return format;
-	}
+    public String getFormat() {
+        return format;
+    }
 
-	public void setFormat(String format) {
-		this.format = format;
-	}
+    public void setFormat(String format) {
+        this.format = format;
+    }
 
-	public byte[] getCover() {
-		return cover;
-	}
+    public byte[] getCover() {
+        return cover;
+    }
 
-	public void setCover(byte[] cover) {
-		this.cover = cover;
-	}
+    public void setCover(byte[] cover) {
+        this.cover = cover;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
 
 }

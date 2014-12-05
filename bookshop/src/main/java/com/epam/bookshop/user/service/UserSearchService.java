@@ -34,16 +34,16 @@ public class UserSearchService {
         return userDao.findOne(userId);
     }
 
-    public List<User> listUsers(String email) {
-        return transformUserEntities(findUserEntities(formatQuery(email)));
+    public List<User> listUsers(String username) {
+        return transformUserEntities(findUserEntities(formatQuery(username)));
     }
 
-    private String formatQuery(String email) {
+    private String formatQuery(String username) {
         String result;
-        if (email == null) {
+        if (username == null) {
             result = "%";
         } else {
-            result = String.format("%%%s%%", email);
+            result = String.format("%s", username);
         }
         return result;
     }
@@ -52,7 +52,7 @@ public class UserSearchService {
         return userEntityTransformer.transformUserEntities(users);
     }
 
-    private Iterable<UserEntity> findUserEntities(String email) {
-        return userDao.findByEmailIgnoreCaseLike(email);
+    private Iterable<UserEntity> findUserEntities(String username) {
+        return userDao.findByUsernameIgnoreCaseLike(username);
     }
 }

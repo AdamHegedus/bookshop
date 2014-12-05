@@ -5,6 +5,7 @@ import java.util.Date;
 public class User {
 
     private Long userId;
+    private String username;
     private String email;
     private String password;
     private Date dateOfBirth;
@@ -39,6 +40,14 @@ public class User {
 
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
 }

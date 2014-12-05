@@ -14,10 +14,15 @@
 
   <authentication-manager>
     <authentication-provider>
-      <user-service>
+      <!--
+      <user-service>       
         <user name="admin" password="admin" authorities="ROLE_ADMIN" />
         <user name="user" password="user" authorities="ROLE_USER" />
       </user-service>
+       -->
+    	<jdbc-user-service data-source-ref="bookShopDataSource" 
+      		users-by-username-query="SELECT username, password, enabled FROM user WHERE username=?;" 
+       		authorities-by-username-query="SELECT username, role FROM user WHERE username=?;"/>
     </authentication-provider>
   </authentication-manager>
 </beans:beans>

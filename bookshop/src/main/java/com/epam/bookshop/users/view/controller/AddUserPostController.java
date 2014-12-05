@@ -23,6 +23,7 @@ public class AddUserPostController {
         super();
         this.userWriteService = userWriteService;
         this.addUserRequestTransformer = addUserRequestTransformer;
+
     }
 
     @RequestMapping(value = "/addUserPost.html", method = RequestMethod.POST)
@@ -32,7 +33,7 @@ public class AddUserPostController {
             result = "add_user";
         } else {
             userWriteService.saveUser(addUserRequestTransformer.transformAddUserRequestToUser(addUserRequest));
-            redirectAttributes.addFlashAttribute("message", String.format("User '%s' saved!", addUserRequest.getEmail()));
+            redirectAttributes.addFlashAttribute("message", String.format("User '%s' saved!", addUserRequest.getUsername()));
             result = "redirect:addUserForm.html";
         }
         return result;

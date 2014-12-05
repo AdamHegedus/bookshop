@@ -17,41 +17,43 @@ import com.epam.bookshop.stock.view.controller.AddBookFormController;
 
 @Controller
 public class HomeController {
-	public static final String REQUEST_MAPPING = "/";
-	private LocalizationService localizationService;
-	private AuthenticationService authenticationService;
-	private LocalizationUrlBuilder localizationUrlBuilder;
+    public static final String REQUEST_MAPPING = "/";
+    private final LocalizationService localizationService;
+    private final AuthenticationService authenticationService;
+    private final LocalizationUrlBuilder localizationUrlBuilder;
 
-	@Autowired
-	public HomeController(LocalizationService localizationService, AuthenticationService authenticationService, LocalizationUrlBuilder localizationUrlBuilder) {
-		super();
-		this.localizationService = localizationService;
-		this.authenticationService = authenticationService;
-		this.localizationUrlBuilder = localizationUrlBuilder;
-	}
+    @Autowired
+    public HomeController(LocalizationService localizationService, AuthenticationService authenticationService,
+            LocalizationUrlBuilder localizationUrlBuilder) {
+        super();
 
-	@ModelAttribute("homepageModel")
-	public HomepageModel homepageModel() {
-		HomepageModel result = new HomepageModel();
-		result.setBookshopName("Bookshop");
-		result.setLanguageSelectors(getLanguageSelectors());
-		if (authenticationService.isUserAuthenticated()) {
-			result.setLogoutUrl("/j_spring_security_logout");
-			if (authenticationService.isUserAdmin()) {
-				result.setAdminUrl(AddBookFormController.REQUEST_MAPPING);
-			}
-		} else {
-			result.setLoginUrl(LoginFormController.REQUEST_MAPPING);
-		}
-		return result;
-	}
+        this.localizationService = localizationService;
+        this.authenticationService = authenticationService;
+        this.localizationUrlBuilder = localizationUrlBuilder;
+    }
 
-	private List<LanguageUrlMapping> getLanguageSelectors() {
-		return localizationUrlBuilder.buildAccessibleLanguageSelectors(localizationService.getAccessibleLanguages());
-	}
+    @ModelAttribute("homepageModel")
+    public HomepageModel homepageModel() {
+        HomepageModel result = new HomepageModel();
+        result.setBookshopName("Bookshop");
+        result.setLanguageSelectors(getLanguageSelectors());
+        if (authenticationService.isUserAuthenticated()) {
+            result.setLogoutUrl("/j_spring_security_logout");
+            if (authenticationService.isUserAdmin()) {
+                result.setAdminUrl(AddBookFormController.REQUEST_MAPPING);
+            }
+        } else {
+            result.setLoginUrl(LoginFormController.REQUEST_MAPPING);
+        }
+        return result;
+    }
 
-	@RequestMapping(REQUEST_MAPPING)
-	public String homepage() {
-		return "homepage";
-	}
+    private List<LanguageUrlMapping> getLanguageSelectors() {
+        return localizationUrlBuilder.buildAccessibleLanguageSelectors(localizationService.getAccessibleLanguages());
+    }
+
+    @RequestMapping(REQUEST_MAPPING)
+    public String homepage() {
+        return "homepage";
+    }
 }

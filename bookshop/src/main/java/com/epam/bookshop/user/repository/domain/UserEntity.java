@@ -14,6 +14,7 @@ public class UserEntity implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
+    private String username;
     private String email;
     private String password;
     private Date dateOfBirth;
@@ -48,6 +49,14 @@ public class UserEntity implements Serializable {
 
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
 }
